@@ -9,10 +9,12 @@ ser = serial.Serial('/dev/tty.usbmodem1451')
 class MuseServer(ServerThread):
     mellow_val = 0.0
     concentrate_val = 0.0
-    #listen for messages on port 5001
+    #listen for messages on port 5004
+    #ya...it's hardcoded in for now. (dirty hax)
     def __init__(self):
-        ServerThread.__init__(self, 5004)
-        self.mel = 0.0
+        ServerThread.__init__(self, port=5004)
+        self.port=5004
+	self.mel = 0.0
         self.con = 0.0
         self.horse = 0.0
         self.alpha = 0.0
